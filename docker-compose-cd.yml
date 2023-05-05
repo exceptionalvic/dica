@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  web:
+    image: "${WEB_IMAGE}"
+    container_name: web
+    # restart: always
+    command: gunicorn dica_project.wsgi:application --timeout 60 --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/media
+    # expose:
+    #   - 8000
+    ports:
+      - 8000:8000
+    env_file: .env
+    networks:
+      - frontend
+
+  nginx:
+    image: "${NGINX_IMAGE}"
+    container_name: nginx
+    restart: always
+    volumes:
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/media
+    ports:
+      # - "443:443"
+      - "80:80"
+    networks:
+      - frontend
+    depends_on:
+      - web
+
+volumes:
+  static_volume:
+  media_volume:
+
+networks:
+  frontend:
+    driver: bridge

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Add New Suspect</title>
+<div class="container">
+    <h3 class="mt-3 mb-3 text-center text-muted">Add New Suspect</h3>
+    <form method="post" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputFName">First Name</label>
+            <input type="text" class="form-control" id="inputFName" placeholder="First Name" required name="first_name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputLName">Last Name</label>
+            <input type="text" class="form-control" id="inputLName" placeholder="Last Name" required name="last_name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Suspect's Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required name="address">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputAge">Age</label>
+              <input type="text" class="form-control" id="inputAge" required name="age">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputGender">Gender</label>
+              <select id="inputGender" class="form-control" name="gender" required >
+                <!-- <option selected>Choose...</option> -->
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+                <option value="NON-BINARY">Non Binary</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputStatus">Suspect's Status</label>
+                <select id="inputStatus" class="form-control" name="status" required>
+                  <!-- <option selected>Choose...</option> -->
+                  <option value="INCARCERATED">Incacerated</option>
+                  <option value="MANHUNT">Manhunt</option>
+                </select>
+              </div>
+            
+          </div>
+        <div class="form-group">
+          <label for="inputCrimeTitle">Crime Title</label>
+          <input type="text" class="form-control" name="crime_title" id="inputCrimeTitle" required placeholder="example:Murder">
+        </div>
+        <div class="form-group">
+            <label for="inputCrimeDesc">Crime Description</label>
+            <textarea type="text" class="form-control" name="crime_desc" required id="inputCrimeDesc" placeholder="crime detail"></textarea>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputCourt">Name of Law Court</label>
+              <input type="text" class="form-control" id="inputCourt" name="court" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="datepicker">Date Convicted</label>
+                <input class="form-control" id="datepicker" width="276" required name="date">
+                <script>
+                    $('#datepicker').datepicker({
+                        uiLibrary: 'bootstrap4',
+                        format: 'yyyy-mm-dd'
+                    });
+                </script>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputNewsSource">Credible News Source Link</label>
+                <input type="text" class="form-control" id="inputNewsSource" required name="source">
+              </div>
+            
+          </div>
+        <div class="input-group mb-3 col-md-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Upload</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01" required name="image">
+              <label class="custom-file-label" for="inputGroupFile01">Choose suspect photo</label>
+            </div>
+          </div>
+        <button type="submit" class="btn btn-primary">Create Archive</button>
+      </form>
+</div>
+
+
+{% endblock %}

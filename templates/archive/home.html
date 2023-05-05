@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<title>Digital Criminal Archives</title>
+<div class="container mb-4">
+<h3 class="mt-5 mb-5 text-center text-muted">Digital Criminal Archive</h3>
+    <div class="row">
+        {% for s in suspects %}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ s.mugshot.url }}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{ s.first_name}} {{ s.last_name }}</h5>
+                <p class="card-text">{{ s.crime_description|truncatewords:30 }} <a href="#">see more</a></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Crime: {{ s.crime_title }}</li>
+                <li class="list-group-item">Age: {{ s.age }}</li>
+                <li class="list-group-item">Gender: {{ s.gender }}</li>
+                <li class="list-group-item">Nationality: {{ s.nationality }}</li>
+                <li class="list-group-item">Date Convicted: {{ s.date_convicted }}</li>
+                <li class="list-group-item">Law Court: {{ s.name_of_law_court }}</li>
+                <li class="list-group-item">Status: {{ s.suspect_status }}</li>
+                </ul>
+                <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+dennv/
+env/
+dlib-19.22.99-cp38-cp38-win_amd64.whl
+*.whl
+example.cpp
+.env
+docs.txt

@@ -1,0 +1,25 @@
+DLIB WHEELS
+https://github.com/sachadee/Dlib
+
+Face Recognition System, display over webpage
+
+
+https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
+https://help.pythonanywhere.com/pages/DiskQuota/
+
+dlib-bin @ https://files.pythonhosted.org/packages/67/bc/79d497217e1efdf3ed8d794c4701b708a682599f4ad88e16ca5a6995129b/dlib_bin-19.24.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+server IP 95.179.241.188
+
+push Docker image to github container registry
+https://dev.to/github/publishing-a-docker-image-to-githubs-container-repository-4n50
+
+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
+
+opencv-python==4.7.0.72
+
+opencv-python @ https://files.pythonhosted.org/packages/51/b6/b75411c8b99df364f2c300aef527c5d0a99b237fc8d45e8144e6f03542e8/opencv_python-4.4.0.42-cp38-cp38-manylinux2014_x86_64.whl
+Pillow==9.5.0
+
+https://alpine-wheels.github.io/index/  ALPINE WHEELS CHEATSHEET
+
+numpy==1.24.2
