@@ -124,29 +124,6 @@ class VideoCamera(object):
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
 
-        # image = self.frame
-        # _, jpeg = cv2.imencode('.jpg', image)
-        # return jpeg.tobytes()
-    
-        # jpeg_base64 = base64.b64encode(jpeg.tostring())
-
-        # return """
-        # <html>
-        # <head>
-        # <meta http-equiv="refresh" content="1" />
-        # <title>Cherrypy webcam</title>
-        # </head>
-        # <html>
-        # <body>
-        # <img src='data:image/jpeg;base64,%s' />
-        # </body>
-        # </html>
-        # """ % (jpeg_base64, jpeg_base64)
-
-    # def update(self):
-    #     # while True:
-    #     self.alarm = True
-    #         (self.grabbed, self.frame) = self.video.read()
             
 def StopStream(request):
     try:
@@ -231,27 +208,7 @@ def Stream(request):
     cam = VideoCamera()
     # alarm = alarm
     return StreamingHttpResponse(gen(cam),content_type='multipart/x-mixed-replace; boundary=frame')
-    # try:
-    #     # cam = process()
-    #     cam = VideoCamera()
-    #     return StreamingHttpResponse(gen(cam), content_type="multipart/x-mixed-replace;boundary=frame")
-    #     # return """
-    #     #     <html>
-    #     #     <head>
-    #     #     <meta http-equiv="refresh" content="1" />
-    #     #     <title>Cherrypy webcam</title>
-    #     #     </head>
-    #     #     <html>
-    #     #     <body>
-    #     #     <img src='data:image/jpeg;base64,%s' />
-    #     #     </body>
-    #     #     </html>
-    #     #     """ % (jpeg_base64, jpeg_base64)
-    # except:
-    #     pass
-    # # process()
-    # # stream_io = process()
-    # return render(request, 'archive/stream.html')
+   
 
 # @gzip.gzip_page
 def process(request):
@@ -308,23 +265,4 @@ def process(request):
     cv2.destroyAllWindows()
     # return PATH
 
-    
-# def showstream(request):
-#     # various performance tweaks
-#     options = {
-#         "frame_size_reduction": 40,
-#         "jpeg_compression_quality": 80,
-#         "jpeg_compression_fastdct": True,
-#         "jpeg_compression_fastupsample": False,
-#     }
-
-#     # initialize WebGear app
-#     # web = WebGear(source="foo.mp4", logging=True, **options)
-#     web = WebGear(source=str(process()), logging=True, **options)
-
-#     # run this app on Uvicorn server at address http://localhost:8000/
-#     uvicorn.run(web(), host="localhost", port=8000)
-
-#     # close app safely
-#     web.shutdown()
-
+ 
